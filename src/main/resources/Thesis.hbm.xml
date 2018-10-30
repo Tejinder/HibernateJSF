@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <!--  <class name="com.jsfhibernate.pojo.Thesis" table="THESIS" catalog="jsfhibercrud" optimistic-lock="version"> -->
+    
+    <class name="com.jsfhibernate.pojo.Thesis" table="THESIS">
+       
+       
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+      
+        <property name="name" type="string">
+            <column name="Name" />
+        </property>
+        <property name="curriculum" type="java.lang.Integer">
+            <column name="Curriculum" />
+        </property>
+        
+        <property name="advisor" type="string">
+            <column name="Advisor" />
+        </property>
+        
+        <property name="secondReader" type="string">
+            <column name="Second_Reader" />
+        </property>
+        
+        <property name="academicAssociate" type="string">
+            <column name="Academic_Associate" />
+        </property>
+        
+        <property name="graduationDate" type="java.util.Date">
+            <column name="Graduation_Date" />
+        </property>
+        
+        <property name="problemStatement" type="string">
+            <column name="Problem_Statement" />
+        </property>
+        
+        <property name="researcHypothesis" type="string">
+            <column name="Research_Hypothesis" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />    
+    <title>Thesis Proposal</title>
+    <style type="text/css">
+    	.btnPos {
+    		margin: 12px;
+    	}
+    	.marginLeft12 {
+    		margin-left: 12px;
+    	}
+    	.successText {
+    		padding-left: 22px;
+    		font-weight: bold;
+    		color: green;
+    	}
+    	.stud-table {
+			border-collapse: collapse;
+		}
+		.stud-table-header {
+			text-align: center;
+			background: none repeat scroll 0 0 #E5E5E5;
+			border-bottom: 1px solid #BBBBBB;
+			padding: 2px;
+		}
+		.stud-table-row {
+			padding: 12px;
+    		text-align: center;
+		}
+    </style>
+</h:head>
+<h:body>
+    <center><h2>Create Thesis Proposal</h2></center>
+    <!-- New Student Form -->
+    <!-- <h3 class="marginLeft12">1. New Student Form</h3> -->
+    <h:form id="thesisSaveForm" styleClass="form-horizontal">    	
+        <h:panelGrid columns="2">        	
+        	
+            <div class="form-group">
+            	<h:outputLabel value="Name:" styleClass="control-label" />
+            	<div class="col-xs-10">
+            		<h:inputText value="#{thesis.name}" id="thesisName" styleClass="form-control" required="true" requiredMessage="Please enter name." > 
+            			 <f:attribute name="message" value="Please write something" />
+  					</h:inputText>	     
+            	</div> 
+            	<h:message for="thesisName" style="color:red" />
+            </div>
+            <div class="form-group">
+            	<h:outputLabel value="Curriculum:" styleClass="control-label" />
+            	<div class="col-xs-10">	
+            		
+            		
+            		<h:selectOneMenu value = "#{thesis.curriculum}" styleClass="form-control" > 
+					   <f:selectItem itemValue = "1" itemLabel = "1" /> 
+					   <f:selectItem itemValue = "2" itemLabel = "2" /> 
+					   <f:selectItem itemValue = "3" itemLabel = "3" />
+					   <f:selectItem itemValue = "4" itemLabel = "4" />
+					   <f:selectItem itemValue = "5" itemLabel = "5" />
+					   <f:selectItem itemValue = "6" itemLabel = "6" />
+					   <f:selectItem itemValue = "7" itemLabel = "7" />
+					   <f:selectItem itemValue = "8" itemLabel = "8" />
+					   <f:selectItem itemValue = "9" itemLabel = "9" />
+					   <f:selectItem itemValue = "10" itemLabel = "10" />
+					   
+					</h:selectOneMenu> 	
+            	</div> 
+            </div>
+            
+             <div class="form-group">
+            	<h:outputLabel value="Advisor:" styleClass="control-label" />
+            	<div class="col-xs-10">	
+            		<h:inputText value="#{thesis.advisor}" styleClass="form-control" />
+            	</div> 
+            </div>
+            
+             <div class="form-group">
+            	<h:outputLabel value="SecondReader:" styleClass="control-label" />
+            	<div class="col-xs-10">	
+            		<h:inputText value="#{thesis.secondReader}" styleClass="form-control" />
+            	</div> 
+            </div>
+            
+             <div class="form-group">
+            	<h:outputLabel value="AcademicAssociate:" styleClass="control-label" />
+            	<div class="col-xs-10">	
+            		<h:inputText value="#{thesis.academicAssociate}" styleClass="form-control" />
+            	</div> 
+            </div>
+            
+             <div class="form-group">
+            	<h:outputLabel value="Date of Graduation:" styleClass="control-label" converterMessage="Format must be: yyyy-MM-dd" />
+            	<div class="col-xs-10">	
+            		
+            		<h:inputText id="graduationDate" value="#{thesis.graduationDate}" styleClass="form-control" >
+					   <f:convertDateTime pattern="yyyy-MM-dd"/>  
+					</h:inputText>
+            	</div> 
+            	
+            	<h:message for="graduationDate" style="color:red" />
+            </div>
+            
+             <div class="form-group">
+            	<h:outputLabel value="Problem Statement:" styleClass="control-label" />
+            	<div class="col-xs-10">	
+            		<h:inputText value="#{thesis.problemStatement}" styleClass="form-control" />
+            	</div> 
+            </div>
+            
+             <div class="form-group">
+            	<h:outputLabel value="Research Hypothesis:" styleClass="control-label" />
+            	<div class="col-xs-10">	
+            		<h:inputText value="#{thesis.researcHypothesis}" styleClass="form-control" />
+            	</div> 
+            </div>
+            <div class="form-group">
+        		<div class="col-xs-offset-2 col-xs-10">
+            		<h:commandButton value="Save Record" action="#{thesis.saveThesisRecord}" styleClass="btn btn-primary btn-sm btnPos" />
+            	</div>
+            </div>
+        </h:panelGrid>
+        <h:outputText id="saveResult" rendered="#{not empty createdThesisId}" value="!! Thesis Record Saved In Database !!" styleClass="successText" />
+    </h:form>
+    <br /><br />
+    
+    
+</h:body>
+</html>
